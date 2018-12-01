@@ -1,4 +1,4 @@
-const filtro = requiere('../models/filtro');
+const filtro = require('../models/filtro');
 const filtroController = {};
 
 filtroController.index = async function (req,res,next) {

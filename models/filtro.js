@@ -1,4 +1,4 @@
-const mongoose = requiere('mongoose');
+const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const filtroSchema = new Schema({
