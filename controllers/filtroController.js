@@ -35,4 +35,21 @@ filtroController.delete = async function(req,res,next){
     }
 }
 
+filtroController.update = async function(req,res,next){
+    let{id}=req.params;
+    let data = {
+        idCelular:req.body.idCelular,
+        marca:req.body.marca,
+        modelo:req.body.modelo,
+        bateria:req.body.bateria
+    }
+    console.log(data);
+    try{
+        await data.update({_id:id},data);
+        res.status(200),json({message:"ACTUALIZADO"});
+    }
+    catch(err){
+        return res.status(500).json({err:err,message:"por favor revise sus datos"});
+    }
+}
 module.exports = filtroController;
