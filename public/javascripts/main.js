@@ -52,7 +52,26 @@ function filtros() {
                             </tr>`
             });
             tbody.innerHTML = filas;
+            //Eventos de eliminar y actualizar
+            let btns_delete = document.querySelectorAll(".delete");
+            btns_delete.forEach(item => {
+                item.addEventListener("click",function(e){
+                    e.preventDefault();
+                    let url =this["href"];
+                    fetch(url,{
+                        method: "DELETE",
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(res=>res.json())
+                    .catch(err=>console.log(err))
+                    .then(response=>{
+                        alert("Eliminado");
+                        filtros();
+                    })
+    
+                });
+            });
         });
-
-
+        
 }
