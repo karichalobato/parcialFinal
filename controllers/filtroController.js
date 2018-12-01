@@ -25,4 +25,14 @@ filtroController.store = store = async function(req,res,next){
     }
 }
 
+filtroController.delete = async function(req,res,next){
+    let{id}=req.params;
+    try{
+        await filtro.remove({_id:id});
+        return res.status(200).json({message:"Eliminado exitoso"});
+    }catch(error){
+        return res.status(500).json({error:error});
+    }
+}
+
 module.exports = filtroController;
